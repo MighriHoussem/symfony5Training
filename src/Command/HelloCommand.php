@@ -14,6 +14,7 @@ class HelloCommand extends Command
     public function __construct(Greeting $greeting = null)
     {
         $this->greeting = $greeting;
+        parent::__construct();
     }
     protected function configure()
     {
@@ -30,6 +31,7 @@ class HelloCommand extends Command
             '******************',
             '']);
         $output->writeln($this->greeting->greet($name));
+        return 1;
     }
 
 
