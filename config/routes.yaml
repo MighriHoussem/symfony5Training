@@ -1,0 +1,10 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index#index:
+#    main: /
+#    controller: App\Controller\MainController::index
+
+# my added yaml config Houssem
+#framework:
+#  path: /framework
+#  controller: App\Controller\MainController::frameworkAction
