@@ -29,6 +29,10 @@ class PostServices {
         $result = $this->postDAO->getPostById($idPost);
         return $result;
     }
+    public function getPostByTitle(string $title){
+        $result = $this->postDAO->getPostByTitle($title);
+        return $result;
+    }
 
 
 }

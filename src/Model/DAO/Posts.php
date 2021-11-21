@@ -62,4 +62,21 @@ class Posts {
         }
     }
 
+    /**
+     * @param string $title
+     * @return array|Exception|\Doctrine\DBAL\list|\Exception
+     */
+    public function getPostByTitle(string $title){
+        try{
+            $query = "SELECT * from ".$this->tableName." WHERE title LIKE '%$title%';";
+            $params = [
+                'title' => $title
+            ];
+            $result = $this->connection->fetchAllAssociative($query);
+            return $result;
+        }catch(Exception $exception){
+            return $exception;
+        }
+    }
+
 }

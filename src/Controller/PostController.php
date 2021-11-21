@@ -193,4 +193,23 @@ class PostController extends AbstractController
             ],500);
         }
     }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @Route("/getByTitle",name="get post by title")
+     */
+    public function getPostByTitleAction(Request $request): JsonResponse{
+        if($request->getMethod() === "GET"){
+            $result = $this->postService->getPostByTitle($request->get("postID"));
+            return new JsonResponse([
+                'post' => $result
+            ],200);
+        }else {
+            return new JsonResponse([
+                'code' => 'INVALID_METHOD_REQUEST',
+                "message" => "Check your request method!"
+            ], 500);
+        }
+    }
 }
